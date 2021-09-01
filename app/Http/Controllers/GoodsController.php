@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class GoodsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $data['aaa'] = 'ddddd';
+        $data['bbb'] = 'ccccc';
+
+        return view('goods.index', compact('data'));
     }
 
     /**
