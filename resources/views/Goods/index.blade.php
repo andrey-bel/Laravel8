@@ -1,5 +1,20 @@
 <html lang="en">
 <body>
-<h1>Привет, {{ $data['bbb'] }}</h1>
+<table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>description</td>
+        <td>order_id</td>
+    </tr>
+    @foreach ($goodsList as $goods)
+        <tr>
+        <td>{{ $goods['id'] }}</td>
+        <td>{{ $goods['name'] }}</td>
+        <td>{{ $goods['description'] }}</td>
+        <td>{{ $goods['order_id'] }}</td>
+        </tr>
+    @endforeach
+</table>
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Goods;
 
 class GoodsController extends Controller
 {
@@ -14,10 +15,33 @@ class GoodsController extends Controller
      */
     public function index(): View
     {
-        $data['aaa'] = 'ddddd';
-        $data['bbb'] = 'ccccc';
+        $goodsModel = new Goods;
 
-        return view('goods.index', compact('data'));
+
+        echo '<pre>';
+        var_dump($goodsModel::find(1));
+        die;
+//        $goodsModel->fill([
+//            'name' => 'second_name_good',
+//            'description' => 'second_name_good',
+//            'order_id' => 111,
+//        ]);
+
+//        $goodsModel->name = 'second_name_good';
+//        $goodsModel->description = 'second_name_good';
+//        $goodsModel->order_id = 66;
+//        $goodsModel->save();
+
+
+        $goodsList = $goodsModel::all()->toArray();
+
+//        echo '<pre>';
+//        var_dump($goodsList);
+//        die;
+
+
+
+        return view('goods.index', compact('goodsList'));
     }
 
     /**
